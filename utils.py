@@ -10,6 +10,7 @@ if not path.isfile("database.db"):
     #===================================================#
     #==|joey      |xxxxxxxxxxx|1          |joe@p.com|===#
     #==|mary      |xxxxxxxxxxx|0          |sam@a.com|===#
+    # add email method to pull password?
     c.execute("CREATE TABLE IF NOT EXISTS login(user TEXT, password TEXT, confirmed INTEGER, email TEXT)") ##email, confirmation doable
     #timestamp DATETIME DEFAULT CURRENT_TIMESTAMP (put into id saving)
     conn.commit()
@@ -29,7 +30,7 @@ def saltnhash(user,password):
 
 """
 === Checks if user is in table: login ===
-=== Adds user to database.db with password hashed ===
+=== Adds user to database.db with password hasshed ===
 Input:
 - user - string
 - password - string
@@ -46,7 +47,27 @@ def create_user(user, password, email):
         conn.commit()
         conn.close()
         return False
-    c.execute("INSERT INTO login VALUES(?,?,0,?)", (user, saltnhash(user,password),email,))
+    c.execute("INSERT INTO login VALUES(?,?,?,?)", (user, saltnhash(user,password),0,email,))
     conn.commit()
     conn.close()
     return True
+
+"""
+===Used to authenticate user===
+Input:
+- user - string
+- password - string
+Depends on fn: saltnhash(user,password)
+Returns:
+- True if user+pass matches
+- False if user+pass does not match
+"""
+def check_user(user, password):
+    conn = sqlite3.connect("database.db")
+    c = conn.cursor()
+    c = c.execute("SELECT * FROM login WHERE user = ? and password = ?", (user, saltnhash(user,password),))
+    for row in c:
+        conn.close()
+        return True
+    conn.close()
+    return False
