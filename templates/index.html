@@ -1,56 +1,77 @@
-{% extends "master.html" %}
-{% block body %}
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="full_pg">
+  <head>
 
-  <div class="login_box">
-    <!-- Top bar select login/signup -->
-    <table width=100% style="margin-top:15px;">
-      <tr>
-        <td style="color:green;" id="login_text"> <center>
-          <div class="login_text" onclick='login_signup("login_text", "signup_text", "login_show", "signup_show");'>Log in</center></div>
-        </td>
-        <td style="color:black;" id="signup_text"> <center>
-          <div class="login_text" onclick='login_signup("signup_text", "login_text", "signup_show", "login_show");console.log("clicking");'>Sign up</center></div>
-        </td>
-      <tr>
-    </table>
-    <hr>
-    <!-- Login/signup bars -->
-    <form method="post">
-      <div id="login_show" style="display:block;">
-        <div class="form-group">
-          <label for="usernameLogin">Username</label>
-          <input type="text" class="form-control" name="usernameLogin">
-        </div>
-        <div class="form-group">
-          <label for="passwordLogin">Password</label>
-          <input type="password" class="form-control" name="passwordLogin">
-        </div>
-        <input name="button" type="submit" class="sign_log" value="Log In" style="margin-top:15px;">
-      </div>
-    </form>
-    <form method="post">
-      <div id="signup_show" style="display:none;">
-        <div class="form-group">
-          <label for="usernameSignup">Username</label>
-          <input type="text" class="form-control" name="usernameSignup">
-        </div>
-        <div class="form-group">
-          <label for="passwordSignup">Password</label>
-          <input type="password" class="form-control" name="passwordSignup">
-        </div>
-        <div class="form-group">
-          <label for="emailSignup">Email (optional)</label>
-          <input type="email" class="form-control" name="emailSignup">
-        </div>
-        <input name="button" type="submit" class="sign_log" value="Sign Up" style="margin-top:15px;">
-      </div>
-    </form>
-  </div> <!-- END OF LOGIN BOX -->
-  <button class="anon_box" onclick="window.location='/browse'">Browse Anonymously</button>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Image Host Concept</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/style_index.css">
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../static/css/style.css">
+    <!-- Custom CSS -->
+  </head>
+  <body>
+    <div class="full_pg">
 
-</div>
+      <div class="login_box">
+        <!-- Top bar select login/signup -->
+        <table width=100% style="margin-top:15px;">
+          <tr>
+            <td style="color:green;" id="login_text"> <center>
+              <div class="login_text" onclick='login_signup("login_text", "signup_text", "login_show", "signup_show");'>Log in</center></div>
+            </td>
+            <td style="color:black;" id="signup_text"> <center>
+              <div class="login_text" onclick='login_signup("signup_text", "login_text", "signup_show", "login_show");console.log("clicking");'>Sign up</center></div>
+            </td>
+          <tr>
+        </table>
+        <hr>
+        <!-- Login/signup bars -->
+        <form method="post">
+          <div id="login_show" style="display:block;">
+            <div class="form-group">
+              <label for="usernameLogin">Username</label>
+              <input type="text" class="form-control" name="usernameLogin">
+            </div>
+            <div class="form-group">
+              <label for="passwordLogin">Password</label>
+              <input type="password" class="form-control" name="passwordLogin">
+            </div>
+            <input name="button" type="submit" class="sign_log" value="Log In" style="margin-top:15px;">
+          </div>
+        </form>
+        <form method="post">
+          <div id="signup_show" style="display:none;">
+            <div class="form-group">
+              <label for="usernameSignup">Username</label>
+              <input type="text" class="form-control" name="usernameSignup">
+            </div>
+            <div class="form-group">
+              <label for="passwordSignup">Password</label>
+              <input type="password" class="form-control" name="passwordSignup">
+            </div>
+            <div class="form-group">
+              <label for="emailSignup">Email (optional)</label>
+              <input type="email" class="form-control" name="emailSignup">
+            </div>
+            <input name="button" type="submit" class="sign_log" value="Sign Up" style="margin-top:15px;">
+          </div>
+          <input name="button" type="submit" class="anon_box" value="Browse Anonymously">
+        </form>
+      </div> <!-- END OF LOGIN BOX -->
+      <!-- Should clear the session.
+      <button class="anon_box" onclick="window.location='/browse'">Browse Anonymously</button>
+      -->
+    </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="../static/js/utils.js"></script>
 
-{% endblock %}
+  </body>
+</html>

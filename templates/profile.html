@@ -1,0 +1,17 @@
+{% extends "master.html" %}
+{% block body %}
+
+<!-- ERROR MESSAGE FOR PROFILE NOT EXISTING -->
+{% if not profile_exists %}
+  <center>
+    <h1 class="error_profile">This profile does not exist.</h1>
+  </center>
+{% endif %}
+
+<!-- ALLOWS USER TO DELETE IMAGES (selectable) -->
+{% if allow_profile %}
+  <center>
+  </center>
+{% endif %}
+
+{% endblock %}

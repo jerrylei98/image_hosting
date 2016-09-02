@@ -71,3 +71,13 @@ def check_user(user, password):
         return True
     conn.close()
     return False
+
+def check_user_exists(user):
+    conn = sqlite3.connect("database.db")
+    c = conn.cursor()
+    c = c.execute("SELECT * FROM login WHERE user = ?", (user,))
+    for row in c:
+        conn.close()
+        return True
+    conn.close()
+    return False

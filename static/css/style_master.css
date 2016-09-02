@@ -1,0 +1,46 @@
+body {
+  background-color: #FFFFFF;
+  padding-top: 70px; /* Navbar move */
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+button.upload_but{
+  transition-duration: 0.4s;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  background-color: white;
+  width: 50%;
+  height: 50px;
+}
+
+button.upload_but:hover {
+  background-color: #778899;
+  color: white;
+}
+
+h1.error_profile{
+  color:red;
+}
+
+button.file_choose_but{
+  transition-duration: 0.4s;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  margin-top:15px;
+  background-color: white;
+  width: 25%;
+  height: 50px;
+}
+
+button.file_choose_but:hover {
+  background-color: #778899;
+  color: white;
+}
+
+div.show_file{
+  color: red;
+  margin-top: 15px;
+}

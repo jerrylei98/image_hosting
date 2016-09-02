@@ -29,7 +29,7 @@ div.login_box {
   padding: 10px;
 }
 
-button.anon_box{
+input.anon_box{
   transition-duration: 0.4s;
   border-radius: 8px;
   border-style: solid;
@@ -43,7 +43,7 @@ button.anon_box{
   margin: 210px 0 0 -250px;
 }
 
-button.anon_box:hover {
+input.anon_box:hover {
   background-color: #778899;
   color: white;
 }
