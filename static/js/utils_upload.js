@@ -1,9 +1,15 @@
 window.onload = function start(){
-  setInterval(show_file, 1000);
+  setInterval(show_file, 50);
 }
 
 
 function show_file(){
-  var file_name = document.getElementById("file_upload").value;
+  var uploaded_file = document.getElementById("file_upload")
+  var file_name = uploaded_file.value;
+  file_name = file_name.split("\\");
+  file_name = file_name[file_name.length - 1];
   document.getElementById("file_name").innerHTML=file_name;
+  if (uploaded_file.size > 200){
+      console.log("File size must under 2mb!");
+  }
 }
