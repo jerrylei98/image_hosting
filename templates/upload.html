@@ -11,12 +11,7 @@
   </center>
 {% endif %}
 
-<div style="display:none;">
-  <form method="post">
-    <input type="file" id="file_upload" accept="image/*">
-    <!-- still needs javascript to push button ONLY if filename ends in .png .jpg, .gif -->
-  </form>
-</div>
+
 
 <center> <!--clicks the <input type="file"> -->
   <button class="file_choose_but" onclick="document.getElementById('file_upload').click();"> Choose File </button>
@@ -28,6 +23,16 @@
 
   </table>
 </center>
+
+<center>
+  <form method="post" id="upload_form">
+    <div style="display:none;">
+      <input type="file" id="file_upload" accept="image/*">
+    </div>
+      <!-- still needs javascript to push button ONLY if filename ends in .png .jpg, .gif -->
+  </form>
+</center>
+
 
 <script src="../static/js/utils_upload.js"></script>
 {% endblock %}

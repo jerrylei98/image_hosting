@@ -30,13 +30,14 @@ input.github_but:hover {
 }
 
 button.upload_but{
+  margin-top: 200px;
   transition-duration: 0.4s;
   border-radius: 8px;
   border-style: solid;
   border-width: thin;
   background-color: white;
   width: 50%;
-  height: 50px;
+  height: 100px;
 }
 
 button.upload_but:hover {
@@ -73,4 +74,20 @@ div.file_selected{
   padding-top:15px;
   font-size: 20px;
   font-family: Tahoma;
+}
+
+input.checked_upload {
+  transition-duration: 0.4s;
+  border-radius: 8px;
+  border-style: solid;
+  border-width: thin;
+  margin-top:35px;
+  background-color: white;
+  width: 45%;
+  height: 50px;
+}
+
+input.checked_upload:hover {
+  background-color: #78AB46;
+  color: white;
 }
