@@ -12,6 +12,7 @@ if not path.isfile("database.db"):
     #==|mary      |xxxxxxxxxxx|0          |sam@a.com|===#
     # add email method to pull password?
     c.execute("CREATE TABLE IF NOT EXISTS login(user TEXT, password TEXT, confirmed INTEGER, email TEXT)") ##email, confirmation doable
+    c.execute("CREATE TABLE IF NOT EXISTS images(filetype TEXT, user TEXT, timestamp DATETIME DEFAULT CURRENT_TIMESTAMP)")
     #timestamp DATETIME DEFAULT CURRENT_TIMESTAMP (put into id saving)
     conn.commit()
     conn.close()
@@ -81,3 +82,12 @@ def check_user_exists(user):
         return True
     conn.close()
     return False
+
+def image_add(filetype, user):
+    conn = sqlite3.connect("database.db")
+    c = conn.cursor()
+    c = c.execute("INSERT INTO images(filetype, user), VALUES(?,?)", (filetype,user))
+    rowid = c.lastrowid
+    conn.commit()
+    conn.close()
+    return rowid

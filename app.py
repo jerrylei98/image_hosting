@@ -1,5 +1,6 @@
 from flask import Flask, render_template, session, request, redirect
 from utils import *
+from os import getcwd
 
 app = Flask(__name__)
 app.secret_key = 'thequickbrownfoxjumpsoverthetwolazydogs'
@@ -56,6 +57,16 @@ def browse():
 def upload():
     if request.method == "GET":
         return render_template("upload.html", username=session.get("username"))
+    elif request.method == "POST":
+        button = request.form['button']
+        if button == "upload_button":
+            get_file = request.files['file'] #filetype is already checked through javascript
+            filetype = get_file.filename.split('.')[-1] #grabs file ext.  Example: 'a.quick.brown.fox.jpg' --> gets '.jpg'
+            new_filename = str(rowidmax) + '.' + filetype
+            get_file.save(getcwd() + '/static/img/pictures/' + #new_filename)
+            return redirect('/image', image_page = #new_filename)
+        else:
+            return redirect('/upload')
 
 @app.route("/logout")
 def logout():
